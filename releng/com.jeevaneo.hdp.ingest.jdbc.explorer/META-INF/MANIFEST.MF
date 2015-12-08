@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Explorer
+Bundle-SymbolicName: com.jeevaneo.hdp.ingest.jdbc.explorer;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.jeevaneo.hdp.ingest.jdbc.explorer.Activator
+Bundle-Vendor: Alexandre Borgoltz
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ com.jeevaneo.hdp.ingest.model;bundle-version="0.1.0",
+ org.eclipse.emf.ecore.xmi;bundle-version="2.11.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: lib/classes12.zip.jar,
+ .

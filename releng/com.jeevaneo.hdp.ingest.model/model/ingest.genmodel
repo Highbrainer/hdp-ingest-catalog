@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.jeevaneo.hdp.ingest.model/src" modelPluginID="com.jeevaneo.hdp.ingest.model"
+    modelName="Ingest" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>ingest.ecore</foreignModel>
+  <genPackages prefix="Ingest" basePackage="com.jeevaneo.hdp" disposableProviderFactory="true"
+      ecorePackage="ingest.ecore#/">
+    <genClasses ecoreClass="ingest.ecore#//Database">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ingest.ecore#//Database/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ingest.ecore#//Database/jdbcUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ingest.ecore#//Database/jdbcUser"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ingest.ecore#//Database/jdbcPassword"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ingest.ecore#//Database/schemas"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ingest.ecore#//Database/jdbcDriver"/>
+    </genClasses>
+    <genClasses ecoreClass="ingest.ecore#//DbTable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ingest.ecore#//DbTable/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ingest.ecore#//DbTable/columns"/>
+    </genClasses>
+    <genClasses ecoreClass="ingest.ecore#//DbSchema">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ingest.ecore#//DbSchema/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ingest.ecore#//DbSchema/tables"/>
+    </genClasses>
+    <genClasses ecoreClass="ingest.ecore#//SqoopImport">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ingest.ecore#//SqoopImport/dbTable"/>
+    </genClasses>
+    <genClasses ecoreClass="ingest.ecore#//SqoopHiveImport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ingest.ecore#//SqoopHiveImport/targetHiveDatabase"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ingest.ecore#//SqoopHiveImport/targetHiveTable"/>
+    </genClasses>
+    <genClasses ecoreClass="ingest.ecore#//SqoopHiveIncrementalImport">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ingest.ecore#//SqoopHiveIncrementalImport/checkColumn"/>
+    </genClasses>
+    <genClasses ecoreClass="ingest.ecore#//DbColumn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ingest.ecore#//DbColumn/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ingest.ecore#//DbColumn/jdbcType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ingest.ecore#//DbColumn/jdbcScale"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ingest.ecore#//DbColumn/jdbcPrecision"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

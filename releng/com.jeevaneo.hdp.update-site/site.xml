@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/apd.releng.model.feature_1.1.0.201510201658.jar" id="apd.releng.model.feature" version="1.1.0.201510201658">
+      <category name="com.jeevaneo.hdp.ingest"/>
+   </feature>
+   <category-def name="com.jeevaneo.hdp.ingest" label="Hadoop Ingest"/>
+</site>
