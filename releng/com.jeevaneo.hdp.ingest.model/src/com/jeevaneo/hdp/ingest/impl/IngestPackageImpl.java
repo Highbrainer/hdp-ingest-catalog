@@ -2,6 +2,7 @@
  */
 package com.jeevaneo.hdp.ingest.impl;
 
+import com.jeevaneo.hdp.ingest.Catalogue;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -74,6 +75,13 @@ public class IngestPackageImpl extends EPackageImpl implements IngestPackage {
 	 * @generated
 	 */
 	private EClass dbColumnEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass catalogueEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -231,6 +239,15 @@ public class IngestPackageImpl extends EPackageImpl implements IngestPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getDbTable_SqoopImports() {
+		return (EReference)dbTableEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDbSchema() {
 		return dbSchemaEClass;
 	}
@@ -260,15 +277,6 @@ public class IngestPackageImpl extends EPackageImpl implements IngestPackage {
 	 */
 	public EClass getSqoopImport() {
 		return sqoopImportEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSqoopImport_DbTable() {
-		return (EReference)sqoopImportEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -366,6 +374,24 @@ public class IngestPackageImpl extends EPackageImpl implements IngestPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCatalogue() {
+		return catalogueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCatalogue_Databases() {
+		return (EReference)catalogueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public IngestFactory getIngestFactory() {
 		return (IngestFactory)getEFactoryInstance();
 	}
@@ -400,13 +426,13 @@ public class IngestPackageImpl extends EPackageImpl implements IngestPackage {
 		dbTableEClass = createEClass(DB_TABLE);
 		createEAttribute(dbTableEClass, DB_TABLE__NAME);
 		createEReference(dbTableEClass, DB_TABLE__COLUMNS);
+		createEReference(dbTableEClass, DB_TABLE__SQOOP_IMPORTS);
 
 		dbSchemaEClass = createEClass(DB_SCHEMA);
 		createEAttribute(dbSchemaEClass, DB_SCHEMA__NAME);
 		createEReference(dbSchemaEClass, DB_SCHEMA__TABLES);
 
 		sqoopImportEClass = createEClass(SQOOP_IMPORT);
-		createEReference(sqoopImportEClass, SQOOP_IMPORT__DB_TABLE);
 
 		sqoopHiveImportEClass = createEClass(SQOOP_HIVE_IMPORT);
 		createEAttribute(sqoopHiveImportEClass, SQOOP_HIVE_IMPORT__TARGET_HIVE_DATABASE);
@@ -420,6 +446,9 @@ public class IngestPackageImpl extends EPackageImpl implements IngestPackage {
 		createEAttribute(dbColumnEClass, DB_COLUMN__JDBC_TYPE);
 		createEAttribute(dbColumnEClass, DB_COLUMN__JDBC_SCALE);
 		createEAttribute(dbColumnEClass, DB_COLUMN__JDBC_PRECISION);
+
+		catalogueEClass = createEClass(CATALOGUE);
+		createEReference(catalogueEClass, CATALOGUE__DATABASES);
 	}
 
 	/**
@@ -465,13 +494,13 @@ public class IngestPackageImpl extends EPackageImpl implements IngestPackage {
 		initEClass(dbTableEClass, DbTable.class, "DbTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDbTable_Name(), ecorePackage.getEString(), "name", null, 1, 1, DbTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDbTable_Columns(), this.getDbColumn(), null, "columns", null, 0, -1, DbTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDbTable_SqoopImports(), this.getSqoopImport(), null, "sqoopImports", null, 0, -1, DbTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dbSchemaEClass, DbSchema.class, "DbSchema", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDbSchema_Name(), ecorePackage.getEString(), "name", null, 1, 1, DbSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDbSchema_Tables(), this.getDbTable(), null, "tables", null, 0, -1, DbSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sqoopImportEClass, SqoopImport.class, "SqoopImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSqoopImport_DbTable(), this.getDbTable(), null, "dbTable", null, 1, 1, SqoopImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sqoopHiveImportEClass, SqoopHiveImport.class, "SqoopHiveImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSqoopHiveImport_TargetHiveDatabase(), ecorePackage.getEString(), "targetHiveDatabase", null, 1, 1, SqoopHiveImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -485,6 +514,9 @@ public class IngestPackageImpl extends EPackageImpl implements IngestPackage {
 		initEAttribute(getDbColumn_JdbcType(), ecorePackage.getEInt(), "jdbcType", null, 1, 1, DbColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDbColumn_JdbcScale(), ecorePackage.getEInt(), "jdbcScale", null, 1, 1, DbColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDbColumn_JdbcPrecision(), ecorePackage.getEInt(), "jdbcPrecision", null, 1, 1, DbColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(catalogueEClass, Catalogue.class, "Catalogue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCatalogue_Databases(), this.getDatabase(), null, "databases", null, 0, -1, Catalogue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

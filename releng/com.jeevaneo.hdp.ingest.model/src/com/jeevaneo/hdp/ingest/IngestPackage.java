@@ -167,13 +167,22 @@ public interface IngestPackage extends EPackage {
 	int DB_TABLE__COLUMNS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Sqoop Imports</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_TABLE__SQOOP_IMPORTS = 2;
+
+	/**
 	 * The number of structural features of the '<em>Db Table</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DB_TABLE_FEATURE_COUNT = 2;
+	int DB_TABLE_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Db Table</em>' class.
@@ -241,22 +250,13 @@ public interface IngestPackage extends EPackage {
 	int SQOOP_IMPORT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Db Table</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SQOOP_IMPORT__DB_TABLE = 0;
-
-	/**
 	 * The number of structural features of the '<em>Sqoop Import</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SQOOP_IMPORT_FEATURE_COUNT = 1;
+	int SQOOP_IMPORT_FEATURE_COUNT = 0;
 
 	/**
 	 * The number of operations of the '<em>Sqoop Import</em>' class.
@@ -276,15 +276,6 @@ public interface IngestPackage extends EPackage {
 	 * @generated
 	 */
 	int SQOOP_HIVE_IMPORT = 4;
-
-	/**
-	 * The feature id for the '<em><b>Db Table</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SQOOP_HIVE_IMPORT__DB_TABLE = SQOOP_IMPORT__DB_TABLE;
 
 	/**
 	 * The feature id for the '<em><b>Target Hive Database</b></em>' attribute.
@@ -331,15 +322,6 @@ public interface IngestPackage extends EPackage {
 	 * @generated
 	 */
 	int SQOOP_HIVE_INCREMENTAL_IMPORT = 5;
-
-	/**
-	 * The feature id for the '<em><b>Db Table</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SQOOP_HIVE_INCREMENTAL_IMPORT__DB_TABLE = SQOOP_HIVE_IMPORT__DB_TABLE;
 
 	/**
 	 * The feature id for the '<em><b>Target Hive Database</b></em>' attribute.
@@ -452,6 +434,44 @@ public interface IngestPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link com.jeevaneo.hdp.ingest.impl.CatalogueImpl <em>Catalogue</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.jeevaneo.hdp.ingest.impl.CatalogueImpl
+	 * @see com.jeevaneo.hdp.ingest.impl.IngestPackageImpl#getCatalogue()
+	 * @generated
+	 */
+	int CATALOGUE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Databases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATALOGUE__DATABASES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Catalogue</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATALOGUE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Catalogue</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATALOGUE_OPERATION_COUNT = 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link com.jeevaneo.hdp.ingest.Database <em>Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -560,6 +580,17 @@ public interface IngestPackage extends EPackage {
 	EReference getDbTable_Columns();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link com.jeevaneo.hdp.ingest.DbTable#getSqoopImports <em>Sqoop Imports</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sqoop Imports</em>'.
+	 * @see com.jeevaneo.hdp.ingest.DbTable#getSqoopImports()
+	 * @see #getDbTable()
+	 * @generated
+	 */
+	EReference getDbTable_SqoopImports();
+
+	/**
 	 * Returns the meta object for class '{@link com.jeevaneo.hdp.ingest.DbSchema <em>Db Schema</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -600,17 +631,6 @@ public interface IngestPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSqoopImport();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.jeevaneo.hdp.ingest.SqoopImport#getDbTable <em>Db Table</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Db Table</em>'.
-	 * @see com.jeevaneo.hdp.ingest.SqoopImport#getDbTable()
-	 * @see #getSqoopImport()
-	 * @generated
-	 */
-	EReference getSqoopImport_DbTable();
 
 	/**
 	 * Returns the meta object for class '{@link com.jeevaneo.hdp.ingest.SqoopHiveImport <em>Sqoop Hive Import</em>}'.
@@ -720,6 +740,27 @@ public interface IngestPackage extends EPackage {
 	EAttribute getDbColumn_JdbcPrecision();
 
 	/**
+	 * Returns the meta object for class '{@link com.jeevaneo.hdp.ingest.Catalogue <em>Catalogue</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Catalogue</em>'.
+	 * @see com.jeevaneo.hdp.ingest.Catalogue
+	 * @generated
+	 */
+	EClass getCatalogue();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.jeevaneo.hdp.ingest.Catalogue#getDatabases <em>Databases</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Databases</em>'.
+	 * @see com.jeevaneo.hdp.ingest.Catalogue#getDatabases()
+	 * @see #getCatalogue()
+	 * @generated
+	 */
+	EReference getCatalogue_Databases();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -827,6 +868,14 @@ public interface IngestPackage extends EPackage {
 		EReference DB_TABLE__COLUMNS = eINSTANCE.getDbTable_Columns();
 
 		/**
+		 * The meta object literal for the '<em><b>Sqoop Imports</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DB_TABLE__SQOOP_IMPORTS = eINSTANCE.getDbTable_SqoopImports();
+
+		/**
 		 * The meta object literal for the '{@link com.jeevaneo.hdp.ingest.impl.DbSchemaImpl <em>Db Schema</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -861,14 +910,6 @@ public interface IngestPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SQOOP_IMPORT = eINSTANCE.getSqoopImport();
-
-		/**
-		 * The meta object literal for the '<em><b>Db Table</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SQOOP_IMPORT__DB_TABLE = eINSTANCE.getSqoopImport_DbTable();
 
 		/**
 		 * The meta object literal for the '{@link com.jeevaneo.hdp.ingest.impl.SqoopHiveImportImpl <em>Sqoop Hive Import</em>}' class.
@@ -955,6 +996,24 @@ public interface IngestPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DB_COLUMN__JDBC_PRECISION = eINSTANCE.getDbColumn_JdbcPrecision();
+
+		/**
+		 * The meta object literal for the '{@link com.jeevaneo.hdp.ingest.impl.CatalogueImpl <em>Catalogue</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.jeevaneo.hdp.ingest.impl.CatalogueImpl
+		 * @see com.jeevaneo.hdp.ingest.impl.IngestPackageImpl#getCatalogue()
+		 * @generated
+		 */
+		EClass CATALOGUE = eINSTANCE.getCatalogue();
+
+		/**
+		 * The meta object literal for the '<em><b>Databases</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CATALOGUE__DATABASES = eINSTANCE.getCatalogue_Databases();
 
 	}
 

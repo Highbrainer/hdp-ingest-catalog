@@ -233,6 +233,29 @@ public class IngestItemProviderAdapterFactory extends IngestAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.jeevaneo.hdp.ingest.Catalogue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CatalogueItemProvider catalogueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.jeevaneo.hdp.ingest.Catalogue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCatalogueAdapter() {
+		if (catalogueItemProvider == null) {
+			catalogueItemProvider = new CatalogueItemProvider(this);
+		}
+
+		return catalogueItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -338,6 +361,7 @@ public class IngestItemProviderAdapterFactory extends IngestAdapterFactory imple
 		if (sqoopHiveImportItemProvider != null) sqoopHiveImportItemProvider.dispose();
 		if (sqoopHiveIncrementalImportItemProvider != null) sqoopHiveIncrementalImportItemProvider.dispose();
 		if (dbColumnItemProvider != null) dbColumnItemProvider.dispose();
+		if (catalogueItemProvider != null) catalogueItemProvider.dispose();
 	}
 
 }

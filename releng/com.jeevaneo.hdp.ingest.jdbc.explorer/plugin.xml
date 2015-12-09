@@ -5,7 +5,7 @@
    <extension
          point="org.eclipse.ui.popupMenus">
       <objectContribution
-            objectClass="com.jeevaneo.hdp.ingest.Database"
+            objectClass="org.eclipse.datatools.connectivity.sqm.core.rte.ICatalogObject"
             id="com.jeevaneo.hdp.ingest.jdbc.explorer.contribution1">
          <menu
                label="JDBC"

@@ -111,6 +111,12 @@ public class IngestSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case IngestPackage.CATALOGUE: {
+				Catalogue catalogue = (Catalogue)theEObject;
+				T result = caseCatalogue(catalogue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -217,6 +223,21 @@ public class IngestSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDbColumn(DbColumn object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Catalogue</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Catalogue</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCatalogue(Catalogue object) {
 		return null;
 	}
 

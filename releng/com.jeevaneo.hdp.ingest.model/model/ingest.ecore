@@ -20,6 +20,8 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
         eType="#//DbColumn" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sqoopImports" upperBound="-1"
+        eType="#//SqoopImport" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DbSchema">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -27,10 +29,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1"
         eType="#//DbTable" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SqoopImport">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dbTable" lowerBound="1"
-        eType="#//DbTable"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SqoopImport"/>
   <eClassifiers xsi:type="ecore:EClass" name="SqoopHiveImport" eSuperTypes="#//SqoopImport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetHiveDatabase" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -50,5 +49,9 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="jdbcPrecision" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Catalogue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="databases" upperBound="-1"
+        eType="#//Database" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

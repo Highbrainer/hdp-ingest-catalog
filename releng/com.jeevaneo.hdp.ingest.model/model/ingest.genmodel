@@ -18,14 +18,13 @@
     <genClasses ecoreClass="ingest.ecore#//DbTable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ingest.ecore#//DbTable/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ingest.ecore#//DbTable/columns"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ingest.ecore#//DbTable/sqoopImports"/>
     </genClasses>
     <genClasses ecoreClass="ingest.ecore#//DbSchema">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ingest.ecore#//DbSchema/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ingest.ecore#//DbSchema/tables"/>
     </genClasses>
-    <genClasses ecoreClass="ingest.ecore#//SqoopImport">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ingest.ecore#//SqoopImport/dbTable"/>
-    </genClasses>
+    <genClasses ecoreClass="ingest.ecore#//SqoopImport"/>
     <genClasses ecoreClass="ingest.ecore#//SqoopHiveImport">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ingest.ecore#//SqoopHiveImport/targetHiveDatabase"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ingest.ecore#//SqoopHiveImport/targetHiveTable"/>
@@ -38,6 +37,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ingest.ecore#//DbColumn/jdbcType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ingest.ecore#//DbColumn/jdbcScale"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ingest.ecore#//DbColumn/jdbcPrecision"/>
+    </genClasses>
+    <genClasses ecoreClass="ingest.ecore#//Catalogue">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ingest.ecore#//Catalogue/databases"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

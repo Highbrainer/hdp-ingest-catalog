@@ -63,6 +63,7 @@ public class IngestFactoryImpl extends EFactoryImpl implements IngestFactory {
 			case IngestPackage.SQOOP_HIVE_IMPORT: return createSqoopHiveImport();
 			case IngestPackage.SQOOP_HIVE_INCREMENTAL_IMPORT: return createSqoopHiveIncrementalImport();
 			case IngestPackage.DB_COLUMN: return createDbColumn();
+			case IngestPackage.CATALOGUE: return createCatalogue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -136,6 +137,16 @@ public class IngestFactoryImpl extends EFactoryImpl implements IngestFactory {
 	public DbColumn createDbColumn() {
 		DbColumnImpl dbColumn = new DbColumnImpl();
 		return dbColumn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Catalogue createCatalogue() {
+		CatalogueImpl catalogue = new CatalogueImpl();
+		return catalogue;
 	}
 
 	/**

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.jeevaneo.hdp.ingest.DbTable#getName <em>Name</em>}</li>
  *   <li>{@link com.jeevaneo.hdp.ingest.DbTable#getColumns <em>Columns</em>}</li>
+ *   <li>{@link com.jeevaneo.hdp.ingest.DbTable#getSqoopImports <em>Sqoop Imports</em>}</li>
  * </ul>
  *
  * @see com.jeevaneo.hdp.ingest.IngestPackage#getDbTable()
@@ -65,5 +66,21 @@ public interface DbTable extends EObject {
 	 * @generated
 	 */
 	EList<DbColumn> getColumns();
+
+	/**
+	 * Returns the value of the '<em><b>Sqoop Imports</b></em>' containment reference list.
+	 * The list contents are of type {@link com.jeevaneo.hdp.ingest.SqoopImport}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sqoop Imports</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sqoop Imports</em>' containment reference list.
+	 * @see com.jeevaneo.hdp.ingest.IngestPackage#getDbTable_SqoopImports()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<SqoopImport> getSqoopImports();
 
 } // DbTable

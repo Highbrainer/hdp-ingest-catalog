@@ -103,6 +103,7 @@ public class DbTableItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(IngestPackage.Literals.DB_TABLE__COLUMNS);
+			childrenFeatures.add(IngestPackage.Literals.DB_TABLE__SQOOP_IMPORTS);
 		}
 		return childrenFeatures;
 	}
@@ -162,6 +163,7 @@ public class DbTableItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case IngestPackage.DB_TABLE__COLUMNS:
+			case IngestPackage.DB_TABLE__SQOOP_IMPORTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -183,6 +185,21 @@ public class DbTableItemProvider
 			(createChildParameter
 				(IngestPackage.Literals.DB_TABLE__COLUMNS,
 				 IngestFactory.eINSTANCE.createDbColumn()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(IngestPackage.Literals.DB_TABLE__SQOOP_IMPORTS,
+				 IngestFactory.eINSTANCE.createSqoopImport()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(IngestPackage.Literals.DB_TABLE__SQOOP_IMPORTS,
+				 IngestFactory.eINSTANCE.createSqoopHiveImport()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(IngestPackage.Literals.DB_TABLE__SQOOP_IMPORTS,
+				 IngestFactory.eINSTANCE.createSqoopHiveIncrementalImport()));
 	}
 
 	/**

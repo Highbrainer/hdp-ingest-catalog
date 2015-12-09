@@ -85,6 +85,15 @@ public interface IngestFactory extends EFactory {
 	DbColumn createDbColumn();
 
 	/**
+	 * Returns a new object of class '<em>Catalogue</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Catalogue</em>'.
+	 * @generated
+	 */
+	Catalogue createCatalogue();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
