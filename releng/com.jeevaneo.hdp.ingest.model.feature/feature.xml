@@ -2,7 +2,7 @@
 <feature
       id="com.jeevaneo.hdp.ingest.model.feature"
       label="Jeevaneo&apos;s Hadoop Ingest Catalogue"
-      version="1.0.0.qualifier"
+      version="1.0.1.qualifier"
       provider-name="JEEVANEO - Alexandre Borgoltz">
 
    <description>
