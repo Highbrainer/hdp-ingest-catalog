@@ -3,5 +3,8 @@
    <feature url="features/com.jeevaneo.hdp.ingest.model.feature_1.0.1.201512091834.jar" id="com.jeevaneo.hdp.ingest.model.feature" version="1.0.1.201512091834">
       <category name="com.jeevaneo.hdp.ingest"/>
    </feature>
+   <feature url="features/com.jeevaneo.hdp.ingest.model.feature_1.0.1.201512101000.jar" id="com.jeevaneo.hdp.ingest.model.feature" version="1.0.1.201512101000">
+      <category name="com.jeevaneo.hdp.ingest"/>
+   </feature>
    <category-def name="com.jeevaneo.hdp.ingest" label="Hadoop Ingest Catalogue"/>
 </site>
